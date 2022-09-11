@@ -8,6 +8,12 @@ import flixel.util.FlxAxes;
 import flixel.util.FlxTimer;
 import flixel.util.FlxColor;
 import openfl.Assets;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxSubState;
+import flixel.text.FlxText;
+import flixel.util.FlxColor;
+import lime.app.Application;
 
 class EndState extends FlxState
 {
