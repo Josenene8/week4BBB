@@ -28,6 +28,10 @@ class CreditState extends MusicBeatState
 		blackShit.alpha = 1;
 		blackShit.scrollFactor.set();
 		add(blackShit);
+		
+		#if android
+		addVirtualPad(NONE, A_B);
+		#end
 
 		FlxTween.tween(blackShit, {alpha: 0}, 0.5, {ease: FlxEase.quartInOut});
 	}
