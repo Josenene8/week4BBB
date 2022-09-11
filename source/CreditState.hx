@@ -30,7 +30,7 @@ class CreditState extends MusicBeatState
 		add(blackShit);
 		
 		#if android
-		addVirtualPad(NONE, A_B);
+		addVirtualPad(NONE, A);
 		#end
 
 		FlxTween.tween(blackShit, {alpha: 0}, 0.5, {ease: FlxEase.quartInOut});
@@ -39,7 +39,7 @@ class CreditState extends MusicBeatState
 	{
 		super.update(elapsed); 
         
-        if(FlxG.keys.pressed.ENTER)
+        if(controls.ACCEPT)
         {
 		    FlxG.switchState(new MainMenuState());
         }
