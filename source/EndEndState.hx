@@ -24,6 +24,9 @@ class EndEndState extends FlxState
 		bg.loadGraphic(Paths.image("oofios", "shared"));
 		bg.antialiasing = true;
 		add(bg);
+		#if android
+		addVirtualPad(NONE, A_B);
+		#end
         //FlxG.sound.playMusic(Paths.music("eilot","shared"),1,false);
         //camera.flash(FlxColor.BLACK, 1);
 	}
@@ -31,7 +34,7 @@ class EndEndState extends FlxState
 	{
 		super.update(elapsed); 
         
-        if(FlxG.keys.pressed.ENTER)
+        if(controls.ACCEPT)
         {
 		    FlxG.switchState(new StoryMenuState());
         }
