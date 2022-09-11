@@ -24,14 +24,19 @@ class EndState extends FlxState
 		bg.loadGraphic(Paths.image("shitling", "shared"));
 		bg.antialiasing = true;
 		add(bg);
+		#if android
+		addVirtualPad(NONE, A_B);
+		#end
         FlxG.sound.playMusic(Paths.music("eilot","shared"),1,false);
         camera.flash(FlxColor.BLACK, 1);
+		
+		
 	}
 	override public function update(elapsed:Float):Void 
 	{
 		super.update(elapsed); 
         
-        if(FlxG.keys.pressed.ENTER)
+        if(controls.ACCEPT)
         {
 		    FlxG.switchState(new StoryMenuState());
         }
