@@ -95,7 +95,7 @@ class NGio
 		FlxG.save.data.sessionId = NG.core.sessionId;
 		// FlxG.save.flush();
 		// Load medals then call onNGMedalFetch()
-		NG.core.requestMedals(onNGMedalFetch);
+//		NG.core.requestMedals(onNGMedalFetch);
 
 		// Load Scoreboards hten call onNGBoardsFetch()
 	//	NG.core.requestScoreBoards(onNGBoardsFetch);
