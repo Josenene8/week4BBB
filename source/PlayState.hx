@@ -1587,6 +1587,9 @@ class PlayState extends MusicBeatState
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 
+                 #if android
+	        addAndroidControls();
+	#end
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -2003,6 +2006,10 @@ class PlayState extends MusicBeatState
 
 	function startCountdown():Void
 	{
+		#if android
+	        androidc.visible = true;
+	        #end
+			
 		inCutscene = false;
 
 		start.animation.play(curSong.toLowerCase());
@@ -3421,6 +3428,7 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+		#if windows
 		if (!loadRep)
 			rep.SaveReplay(saveNotes);
 		else
@@ -3429,7 +3437,8 @@ class PlayState extends MusicBeatState
 			FlxG.save.data.scrollSpeed = 1;
 			FlxG.save.data.downscroll = false;
 		}
-
+                #end
+			
 		if (FlxG.save.data.fpsCap > 290)
 			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(290);
 
@@ -3537,10 +3546,12 @@ class PlayState extends MusicBeatState
 
 					switch(tempSong)
 					{
+						 #if windows
 						case "babys-revenge":
 							LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut2'), new PlayState()));
 						case "baby-bob":
 							LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut2'), new PlayState()));
+							#end
 						default:
 							LoadingState.loadAndSwitchState(new PlayState());
 					}
