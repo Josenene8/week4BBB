@@ -191,6 +191,10 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 165");
 
+		#if android
+addVirtualPad(FULL, A_B);
+#end
+	
 		super.create();
 	}
 
@@ -298,14 +302,18 @@ class StoryMenuState extends MusicBeatState
 			if (curWeek == 2) {
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
+					#if windows
 					LoadingState.loadAndSwitchState(new VideoState(Paths.video('babycut1'), new PlayState()));
+					#end
 				});
 			}
 			if (curWeek == 3) {
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{	
+					#if windows
 					PlayState.videoDialogue = 1;
 					LoadingState.loadAndSwitchState(new VideoState(Paths.video('bobcut1'), new PlayState()));
+					#end
 				});
 			}
 
