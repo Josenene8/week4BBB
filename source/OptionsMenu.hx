@@ -27,6 +27,7 @@ class OptionsMenu extends MusicBeatState
 
 	var options:Array<OptionCategory> = [
 		new OptionCategory("Gameplay", [
+			new AndroidControls(),
 			new DFJKOption(controls),
 			new DownscrollOption("Change the layout of the strumline."),
 			new GhostTapOption("Ghost Tapping is when you tap a direction and it doesn't give you a miss."),
@@ -41,7 +42,7 @@ class OptionsMenu extends MusicBeatState
 			new CustomizeGameplay("Drag'n'Drop Gameplay Modules around to your preference")
 		]),
 		new OptionCategory("Appearance", [
-			#if desktop
+			#if (desktop && android)
 			new CameraEffects("Camera zooms and camera movement while pressing a note, for people who hate me as a person."),
 			new Shaders("Turns on or off shaders for the mod, shaders can cause crashes if you have a shit computer"),
 			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay."),
@@ -117,6 +118,10 @@ class OptionsMenu extends MusicBeatState
 		FlxTween.tween(versionShit,{y: FlxG.height - 18},2,{ease: FlxEase.elasticInOut});
 		FlxTween.tween(blackBorder,{y: FlxG.height - 18},2, {ease: FlxEase.elasticInOut});
 
+		#if android
+		addVirtualPad(FULL, A_B);
+		#end
+			
 		super.create();
 	}
 
